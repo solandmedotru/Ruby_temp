@@ -1,17 +1,15 @@
 class Item
-  @@id       = 0
   @@discount = 0.05
 
-  attr_accessor :real_price, :name
+  attr_accessor :real_price, :name, :price
 
-  def initialize (options={})
-    @name  = options[:name]
+  def initialize (name, options={})
+    @name  = :name
     @real_price = options[:price]
-
   end
 
   def self.discount
-    Time.now.month == 4 ? @@discount += 0.1 : @@discount
+    Time.now.month == 4 ? @@discount + 0.1 : @@discount
   end
 
   def info
